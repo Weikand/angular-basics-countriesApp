@@ -1,1 +1,52 @@
-<p>see-country works!</p>
+<div
+  *ngIf="!country; else divCountry"
+  class="alert alert-info">
+  Wait please...
+</div>
+
+<ng-template #divCountry>
+  <div class="row">
+    <div class="col-12">
+      <h1>Country: <small>{{country[0].name.common}}</small></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <h3>Flag</h3>
+      <img [src]="country[0].flags.png" class="img-thumbnail" alt="{{country[0].name.common}}"/>
+    </div>
+    <div class="col">
+      <h3>Information</h3>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Population: </strong> {{country[0].population | number}}
+        </li>
+        <li class="list-group-item">
+          <strong>Borders: </strong> <span  *ngFor="let border of country[0].borders">{{border}} </span>
+        </li>
+        <li class="list-group-item">
+          <strong>Alpha 3 code: </strong> {{country[0].cca3}}
+        </li>
+        <li class="list-group-item">
+          <strong>Domains: </strong> <span  *ngFor="let domain of country[0].tld">{{domain}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <h3>Translations</h3>
+  <div class="row">
+    <div class="col">
+      <span class="badge bg-primary mr-1">{{country[0].translations.deu.official}}</span>
+      <span class="badge bg-primary mr-1">{{country[0].translations.ces.official}}</span>
+      <span class="badge bg-primary mr-1">{{country[0].translations.fra.official}}</span>
+      <span class="badge bg-primary mr-1">{{country[0].translations.ita.official}}</span>
+      <span class="badge bg-primary mr-1">{{country[0].translations.jpn.official}}</span>
+      <span class="badge bg-primary mr-1">{{country[0].translations.rus.official}}</span>
+    </div>
+  </div>
+
+  <pre class="mt-5">
+    {{country | json}}
+  </pre>
+</ng-template>

@@ -1,10 +1,10 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 
-import {ByCountryComponent} from "./app/country/pages/by-country/by-country.component";
-import {ByRegionComponent} from "./app/country/pages/by-region/by-region.component";
-import {ByCapitalComponent} from "./app/country/pages/by-capital/by-capital.component";
-import {SeeCountryComponent} from "./app/country/pages/see-country/see-country.component";
+import {ByCountryComponent} from "./country/pages/by-country/by-country.component";
+import {ByRegionComponent} from "./country/pages/by-region/by-region.component";
+import {ByCapitalComponent} from "./country/pages/by-capital/by-capital.component";
+import {SeeCountryComponent} from "./country/pages/see-country/see-country.component";
 
 
 const routes: Routes = [
