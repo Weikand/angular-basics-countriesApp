@@ -1,16 +1,20 @@
-<h2> Search by Capital </h2>
-<hr>
 
-<div class="row">
-  <div class="col">
-    <app-country-input (onEnter)="search($event)"
-                       (onDebounce)="suggestions($event)"
-                       placeholder="Search capital..."
-    ></app-country-input>
+<div class="animate__animated animate__fadeIn animate__fast">
+  <h2> Search by Capital </h2>
+  <hr>
+
+  <div class="row">
+    <div class="col">
+      <app-country-input (onEnter)="search($event)"
+                         (onDebounce)="suggestions($event)"
+                         placeholder="Search capital..."
+      ></app-country-input>
+    </div>
   </div>
+
+  <hr>
 </div>
 
-<hr>
 <div class="alert alert-danger" *ngIf="isError">
   Results not found with '{{searchInput}}'
 </div>

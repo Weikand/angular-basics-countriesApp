@@ -1,1 +1,36 @@
-<p>by-region works!</p>
+<div class="animate__animated animate__fadeIn animate__fast">
+
+  <h3> Search by region <small> {{activeRegion | titlecase}} </small></h3>
+  <hr>
+
+  <div class="row">
+    <div class="col">
+      <!--    [class.btn-primary]="activeRegion === region"-->
+      <!--    [class.btn-outline-primary]="activeRegion !== region"-->
+      <!--    [ngClass]="{-->
+      <!--    'btn-primary': activeRegion === region,-->
+      <!--    'btn-outline-primary': activeRegion !== region-->
+      <!--    }"-->
+      <button *ngFor="let region of regions"
+              [class]="getButtonCssClass(region)"
+              (click)="activateRegion(region)"
+      >
+        {{region | titlecase}}
+      </button>
+    </div>
+  </div>
+
+  <hr>
+
+</div>
+
+<div class="alert alert-danger" *ngIf="isError">
+  Results not found with '{{activeRegion}}'
+</div>
+
+<div class="row" *ngIf="!isError">
+  <div class="col">
+    <app-country-table [countries]="countries"></app-country-table>
+  </div>
+</div>
+
